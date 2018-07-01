@@ -13,6 +13,19 @@
             <td>
                 {{ form.name }}
             </td>
+            <td>
+                {% for error in form.name.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form.owned.label }}
+            </td>
+            <td>
+                {{ form.owned }}
+            </td>
         </tr>
         <tr>
             <td colspan="2">

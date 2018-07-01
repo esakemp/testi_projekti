@@ -44,9 +44,15 @@ def albums_set_not_owned(album_id):
 #creates new album
 @app.route("/albums/", methods=["POST"])
 def albums_create():
-    t = Album(request.form.get("name"))
+    form = AlbumForm(request.form)
 
-    db.session().add(t)
+    if not form.validate():
+        return render_template("albums/new.html", form = form)
+
+    a = Album(form.name.data)
+    a.owned = form.owned.data
+
+    db.session().add(a)
     db.session().commit()
 
     return redirect(url_for("albums_index"))
