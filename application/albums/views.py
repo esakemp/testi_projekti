@@ -4,7 +4,7 @@ from application.albums.models import Album
 
 #list all albums
 @app.route("/albums", methods=["GET"])
-def album_index():
+def albums_index():
     return render_template("albums/list.html", albums = Album.query.all())
 
 #shows form for adding albums
