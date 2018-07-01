@@ -5,17 +5,26 @@
         <title>Tietokanta</title>
     </head>
     <body>
+        
         {% if current_user.is_authenticated %}
+        
         <p>
-            Kirjautunut nimellä {{ current_user.name }}
+        
+            Kirjautunut nimellä {{ current_user.name }} <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a>
+        
         </p>
+        
         {% else %}
-        <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
-            {% endif %}
+        
+        <a href="{{ url_for('auth_login') }}">Login</a>
+        <a href="{{ url_for('auth_register') }}">Register</a>
+        
+        {% endif %}
+        
         <ul>
             <li><a href="{{ url_for('artists_index') }}"> List artists </a></li>
             <li><a href="{{ url_for('artists_form') }}"> Add new artist </a></li>
-            <li><a href="{{ url_for('auth_login') }}"> Login </a></li>
+            
         </ul>
         {% block body %}
         <p>
