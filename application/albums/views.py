@@ -1,5 +1,5 @@
-from application import app
-from flask import render_template, request
+from application import app, db
+from flask import redirect, render_template, request, url_for
 
 @app.route("/albums/new")
 def albums_form():
@@ -7,6 +7,9 @@ def albums_form():
 
 @app.route("/albums/", methods=["POST"])
 def albums_create():
-    print(request.form.get("name"))
+    t = Task(request.form.get("name"))
 
-    return "hello world!"
+    db.session().add(t)
+    db.session().commit()
+
+    return redirect(url_for("albums_index"))
