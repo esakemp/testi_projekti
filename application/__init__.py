@@ -12,5 +12,6 @@ db = SQLAlchemy(app)
 from application import views
 
 from application.albums import models
+from application.albums import views
 
 db.create_all()
