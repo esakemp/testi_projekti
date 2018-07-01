@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<tr>
+    <th>New album submission</th>
+</tr>
 <form method= "POST" action "{{ url_for('albums_create') }}">
     <input type="text" name = "name" />
     <input type="submit" value = "Add new album" />
 </form>
+
+{% endblock %}
