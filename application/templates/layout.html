@@ -4,8 +4,11 @@
         <meta charset="utf-8">
         <title>Tietokanta</title>
     </head>
-
     <body>
+        <ul>
+            <li><a href="{{ url_for('albums_index') }}"> List albums </a></li>
+            <li><a href="{{ url_for('albums_form') }}">Add new album</a></li>
+        </ul>
         {% block body %}
         <p>
             content.

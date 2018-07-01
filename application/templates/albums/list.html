@@ -11,6 +11,11 @@
     <tr>
         <td>{{ album.name }}</td>
         <td>{{ album.owned }}</td>
+        <td>
+            <form method="POST" action="{{ url_for('albums_set_owned', album_id=album.id) }}">
+                <input type="submit" value="Change if owned!"/>
+            </form>
+        </td>
     </tr>
     {% endfor %}
 </table>
