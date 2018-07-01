@@ -45,6 +45,7 @@ def artists_create():
 
     a = Artist(form.name.data)
     a.owned = form.owned.data
+    a.account_id = current_user.id
 
     db.session().add(a)
     db.session().commit()
