@@ -2,9 +2,9 @@
 
 {% block body %}
 <tr>
-    <th>New album submission</th>
+    <th>New artist submission</th>
 </tr>
-<form method="POST" action="{{ url_for('albums_create') }}">
+<form method="POST" action="{{ url_for('artists_create') }}">
     <table>
         <tr>
             <td>
@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" value="Add new album"/>
+                <input type="submit" value="Add new artist"/>
             </td>
         </tr>
     </table>

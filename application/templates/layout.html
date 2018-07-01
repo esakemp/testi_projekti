@@ -6,8 +6,9 @@
     </head>
     <body>
         <ul>
-            <li><a href="{{ url_for('albums_index') }}"> List albums </a></li>
-            <li><a href="{{ url_for('albums_form') }}">Add new album</a></li>
+            <li><a href="{{ url_for('artists_index') }}"> List artists </a></li>
+            <li><a href="{{ url_for('artists_form') }}"> Add new artist </a></li>
+            <li><a href="{{ url_for('auth_login') }}"> Login </a></li>
         </ul>
         {% block body %}
         <p>

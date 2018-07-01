@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<table>
+    <tr>
+        <th>Artist</th>
+        <th>Confirmed</th>
+    </tr>
+    {% for artist in artists %}
+    <tr>
+        <td>{{ artist.name }}</td>
+        <td>{{ artist.owned }}</td>
+        <td>
+            <form method="POST" action="{{ url_for('artists_set_owned', artist_id=artist.id) }}">
+                <input type="submit" value="Change if confirmed!"/>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
