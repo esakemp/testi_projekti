@@ -1,6 +1,8 @@
-from application import app, db
 from flask import redirect, render_template, request, url_for
+
+from application import app, db
 from application.albums.models import Album
+from application.albums.forms import AlbumForm
 
 #list all albums
 @app.route("/albums", methods=["GET"])
@@ -10,7 +12,7 @@ def albums_index():
 #shows form for adding albums
 @app.route("/albums/new")
 def albums_form():
-    return render_template("albums/new.html")
+    return render_template("albums/new.html", form = AlbumForm())
 
 #mark album as owned or not owned
 @app.route("/albums/<album_id>/", methods=["POST"])

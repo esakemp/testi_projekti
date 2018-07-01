@@ -5,8 +5,21 @@
     <th>New album submission</th>
 </tr>
 <form method="POST" action="{{ url_for('albums_create') }}">
-    <input type="text" name = "name" />
-    <input type="submit" value = "Add new album" />
+    <table>
+        <tr>
+            <td>
+                {{ form.name.label }}
+            </td>
+            <td>
+                {{ form.name }}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Add new album"/>
+            </td>
+        </tr>
+    </table>
 </form>
 
 {% endblock %}
