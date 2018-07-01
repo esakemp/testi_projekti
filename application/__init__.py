@@ -11,7 +11,11 @@ db = SQLAlchemy(app)
 
 from application import views
 
+#files from albums folder
 from application.albums import models
 from application.albums import views
+
+#files from auth folder
+from application.auth import models
 
 db.create_all()
