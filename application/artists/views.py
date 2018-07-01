@@ -28,7 +28,7 @@ def artist_set_owned(artist_id):
     else:
         a.owned = True    
 
-    #a.owned = True
+    
     db.session().commit()   
 
     return redirect(url_for("artists_index")) 
@@ -45,8 +45,7 @@ def artists_create():
 
     a = Artist(form.name.data)
     a.owned = form.owned.data
-    a.account_id = current_user.id
-
+    
     db.session().add(a)
     db.session().commit()
 
