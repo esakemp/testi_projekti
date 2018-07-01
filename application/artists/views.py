@@ -34,6 +34,7 @@ def artist_set_owned(artist_id):
     return redirect(url_for("artists_index")) 
 
 #jejeje
+#fuck this shit
 #creates new album
 @app.route("/artists/", methods=["POST"])
 @login_required
