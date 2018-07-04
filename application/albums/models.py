@@ -1,0 +1,18 @@
+from application import db
+
+class Album(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
+    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
+    onupdate=db.func.current_timestamp())
+
+    name = db.ColumnName(db.String(144), nullable=False)
+    owned = db.ColumnName(db.Boolean, nullable=False)
+    rpm = db.ColumnName(db.Integer, nullable=False)
+
+    def __init__(self, name, rpm):
+
+        self.name = name
+        self.owned = False
+        self.rpm = rpm
