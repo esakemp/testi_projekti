@@ -7,12 +7,13 @@ class Album(db.Model):
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
     onupdate=db.func.current_timestamp())
 
-    name = db.ColumnName(db.String(144), nullable=False)
-    owned = db.ColumnName(db.Boolean, nullable=False)
-    rpm = db.ColumnName(db.Integer, nullable=False)
+    name = db.Column(db.String(144), nullable=False)
+    rpm = db.Column(db.Integer, nullable=False)
+    owned = db.Column(db.Boolean, nullable=False)
+    
 
     def __init__(self, name, rpm):
 
         self.name = name
-        self.owned = False
         self.rpm = rpm
+        self.owned = False

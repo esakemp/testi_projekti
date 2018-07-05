@@ -7,7 +7,7 @@ from application.albums.forms import AlbumForm
 
 @app.route("/albums", methods=["GET"])
 def albums_index():
-    return brender_template("albums/list.html", albums = Album.query.all())
+    return render_template("albums/list.html", albums = Album.query.all())
 
 @app.route("/albums/new")
 def albums_form():
@@ -35,9 +35,12 @@ def albums_create():
     if not form.validate():
         return render_template("albums/new.html", form = form)
 
-    album = Album(form.name.data)
-    album.owned = form.owned.data
+    albumName = form.name.data
+    albumOwned = form.owned.data
+    albumRPM = form.rpm.data
 
+    album = Album(albumName, albumRPM)
+    
     db.session().add(album)
     db.session().commit()
 

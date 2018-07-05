@@ -19,6 +19,10 @@ from application.artists import views
 from application.auth import models
 from application.auth import views
 
+#files from albums folder
+from application.albums import models
+from application.albums import views
+
 #login functionality
 from application.auth.models import User
 from os import urandom
